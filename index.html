@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Permite mostrar tildes y caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adapta la página a celulares -->
+    <meta name="description" content="Aplicación sencilla de tarjetas flash para estudiar."> <!-- Describe la página -->
+    <title>Tarjetas Flash</title> <!-- Título de la pestaña -->
+
+    <link rel="stylesheet" href="css/estilos.css"> <!-- Conecta los estilos CSS -->
+
+    <!-- Carga Vue 3 desde internet para usar su framework sin instalar paquetes -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Carga nuestro JavaScript después de Vue -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Contenedor principal donde Vue controla la aplicación -->
+    <main id="app" class="contenedor">
+        <header class="encabezado">
+            <p class="etiqueta"></p>
+            <h1>Tarjetas Flash</h1>
+            <p class="descripcion">Pon a prueba tus conocimientos, una pregunta a la vez.</p>
+        </header>
+
+        <!-- Sección que muestra el avance del usuario -->
+        <section class="progreso" aria-label="Progreso de estudio">
+            <div class="progreso-texto">
+                <span>Tu progreso</span>
+                <strong>{{ currentIndex + 1 }} de {{ tarjetas.length }}</strong>
+            </div>
+            <!-- El ancho de la barra cambia según la tarjeta actual -->
+            <div class="barra-fondo" role="progressbar"
+                 :aria-valuenow="currentIndex + 1"
+                 :aria-valuemin="1"
+                 :aria-valuemax="tarjetas.length">
+                <div class="barra-avance" :style="{ width: progreso + '%' }"></div>
+            </div>
+        </section>
+
+        <!-- Componente reutilizable que muestra una tarjeta -->
+        <flash-card
+            :pregunta="tarjetas[currentIndex].pregunta"
+            :respuesta="tarjetas[currentIndex].respuesta"
+            :volteada="volteada"
+            @voltear="voltearTarjeta">
+        </flash-card>
+
+        <!-- Controles para cambiar de tarjeta -->
+        <nav class="navegacion" aria-label="Navegación de tarjetas">
+            <button class="boton boton-secundario" @click="anteriorTarjeta">
+                Anterior
+            </button>
+            <span class="numero-tarjeta">Tarjeta {{ currentIndex + 1 }}</span>
+            <button class="boton boton-principal" @click="siguienteTarjeta">
+                Siguiente
+            </button>
+        </nav>
+
+        <p class="ayuda">Haz clic sobre la tarjeta para descubrir la respuesta.</p>
+    </main>
+</body>
+</html>

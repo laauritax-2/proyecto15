@@ -1,0 +1,193 @@
+/* Configuración general para toda la página */
+* {
+    box-sizing: border-box; /* Incluye el padding y borde dentro del tamaño */
+}
+
+body {
+    margin: 0; /* Quita el margen predeterminado */
+    min-height: 100vh; /* Ocupa como mínimo toda la altura de la pantalla */
+    font-family: Arial, sans-serif; /* Usa una letra sencilla y legible */
+    background: #f3f5f9; /* Color suave de fondo */
+    color: #253047; /* Color principal del texto */
+}
+
+/* Centra el contenido de la aplicación */
+.contenedor {
+    width: min(90%, 720px); /* Limita el ancho y permite adaptarse */
+    margin: 0 auto; /* Centra horizontalmente */
+    padding: 48px 0; /* Agrega espacio arriba y abajo */
+}
+
+/* Estilos del encabezado */
+.encabezado {
+    text-align: center; /* Centra los textos */
+    margin-bottom: 32px; /* Separa el encabezado del progreso */
+}
+
+.etiqueta {
+    color: #5268b5; /* Resalta el texto pequeño */
+    font-size: 12px; /* Reduce el tamaño */
+    font-weight: bold; /* Hace el texto más marcado */
+    letter-spacing: 2px; /* Separa un poco las letras */
+}
+
+h1 {
+    margin: 10px 0; /* Controla el espacio del título */
+    font-size: 36px; /* Tamaño del título */
+}
+
+.descripcion {
+    margin: 0; /* Quita el margen */
+    color: #68738a; /* Texto secundario */
+    line-height: 1.5; /* Mejora la lectura */
+}
+
+/* Sección de progreso */
+.progreso {
+    margin-bottom: 24px; /* Separa el progreso de la tarjeta */
+}
+
+.progreso-texto {
+    display: flex; /* Coloca los textos en una misma fila */
+    justify-content: space-between; /* Deja uno a cada extremo */
+    margin-bottom: 9px; /* Separa el texto de la barra */
+    font-size: 14px; /* Tamaño de los textos */
+}
+
+.barra-fondo {
+    height: 10px; /* Altura de la barra */
+    overflow: hidden; /* Oculta el contenido que sobresale */
+    border-radius: 20px; /* Redondea los extremos */
+    background: #dfe4ef; /* Fondo de la barra */
+}
+
+.barra-avance {
+    height: 100%; /* Ocupa toda la altura disponible */
+    border-radius: 20px; /* Mantiene los extremos redondeados */
+    background: #5268b5; /* Color del avance */
+    transition: width 0.3s ease; /* Anima el cambio de progreso */
+}
+
+/* Apariencia de la tarjeta */
+.tarjeta {
+    display: flex; /* Organiza el contenido en columna */
+    flex-direction: column; /* Coloca cada texto debajo del anterior */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    min-height: 310px; /* Mantiene una altura cómoda */
+    padding: 35px; /* Espacio interior */
+    border: 1px solid #e0e5ef; /* Borde suave */
+    border-radius: 18px; /* Esquinas redondeadas */
+    background: #ffffff; /* Fondo blanco */
+    color: #253047; /* Color del texto */
+    text-align: center; /* Centra los textos */
+    cursor: pointer; /* Muestra que se puede hacer clic */
+    box-shadow: 0 12px 30px rgba(36, 48, 71, 0.08); /* Sombra ligera */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Suaviza el efecto */
+}
+
+.tarjeta:hover {
+    transform: translateY(-3px); /* Eleva un poco la tarjeta */
+    box-shadow: 0 16px 34px rgba(36, 48, 71, 0.12); /* Aumenta la sombra */
+}
+
+.tarjeta:focus-visible {
+    outline: 3px solid #8293df; /* Señala el foco al navegar con teclado */
+    outline-offset: 4px; /* Separa el borde de enfoque */
+}
+
+.tarjeta-etiqueta {
+    margin-bottom: 22px; /* Separa la etiqueta del contenido */
+    color: #5268b5; /* Color de la etiqueta */
+    font-size: 12px; /* Tamaño pequeño */
+    font-weight: bold; /* Resalta la etiqueta */
+    letter-spacing: 2px; /* Espacio entre letras */
+}
+
+.tarjeta-contenido {
+    max-width: 560px; /* Evita líneas demasiado largas */
+    font-size: 23px; /* Tamaño principal del texto */
+    font-weight: bold; /* Destaca la pregunta o respuesta */
+    line-height: 1.5; /* Facilita la lectura */
+}
+
+.tarjeta-pista {
+    margin-top: 25px; /* Separa la indicación del contenido */
+    color: #7b8498; /* Color secundario */
+    font-size: 13px; /* Texto pequeño */
+    font-weight: normal; /* Peso normal */
+}
+
+/* Botones para cambiar de tarjeta */
+.navegacion {
+    display: flex; /* Coloca los controles en una fila */
+    align-items: center; /* Alinea verticalmente */
+    justify-content: space-between; /* Distribuye el espacio */
+    gap: 12px; /* Separa los elementos */
+    margin-top: 24px; /* Separa los botones de la tarjeta */
+}
+
+.boton {
+    padding: 12px 22px; /* Espacio interior del botón */
+    border: none; /* Quita el borde predeterminado */
+    border-radius: 9px; /* Redondea las esquinas */
+    font-size: 14px; /* Tamaño del texto */
+    font-weight: bold; /* Resalta el texto */
+    cursor: pointer; /* Indica que es interactivo */
+    transition: background 0.2s ease; /* Suaviza el cambio de color */
+}
+
+.boton-principal {
+    background: #5268b5; /* Fondo del botón siguiente */
+    color: #ffffff; /* Texto blanco */
+}
+
+.boton-principal:hover {
+    background: #40549b; /* Oscurece al pasar el cursor */
+}
+
+.boton-secundario {
+    background: #e3e7f1; /* Fondo del botón anterior */
+    color: #34415e; /* Texto oscuro */
+}
+
+.boton-secundario:hover {
+    background: #d5dbea; /* Cambia el fondo al pasar el cursor */
+}
+
+.numero-tarjeta {
+    color: #68738a; /* Color del indicador */
+    font-size: 14px; /* Tamaño del indicador */
+}
+
+.ayuda {
+    margin-top: 22px; /* Separa el mensaje de los botones */
+    color: #7b8498; /* Color secundario */
+    text-align: center; /* Centra el mensaje */
+    font-size: 13px; /* Tamaño pequeño */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 520px) {
+    .contenedor {
+        padding: 30px 0; /* Reduce el espacio exterior */
+    }
+
+    h1 {
+        font-size: 29px; /* Reduce el título */
+    }
+
+    .tarjeta {
+        min-height: 280px; /* Ajusta la altura de la tarjeta */
+        padding: 24px; /* Reduce el espacio interior */
+    }
+
+    .tarjeta-contenido {
+        font-size: 19px; /* Reduce el texto de la tarjeta */
+    }
+
+    .boton {
+        padding: 11px 14px; /* Ajusta el tamaño de los botones */
+    }
+}
